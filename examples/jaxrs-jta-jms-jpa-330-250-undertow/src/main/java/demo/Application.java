@@ -56,6 +56,7 @@ import java.util.logging.Logger;
  *
  * @author Josh Long
  */
+
 @SpringBootApplication
 public class Application {
 
@@ -152,7 +153,7 @@ public class Application {
     }
 
     @Named
-    public static class TestCommandLineRunner {
+    public static class GreetingServiceClient {
 
         @Inject
         private GreetingService greetingService;
@@ -171,7 +172,7 @@ public class Application {
     }
 
     @Named
-    public static class MessageProcessor {
+    public static class GreetingMessageProcessor {
 
         @JmsListener(destination = "greetings")
         public void processGreeting(Greeting greeting) throws JMSException {
