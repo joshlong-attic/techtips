@@ -11,28 +11,27 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.2.0.RC1</version>
+        <version>2.7.6</version>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-java-dsl</artifactId>
-            <version>1.0.0.RC1</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-websocket</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-websocket</artifactId>
-        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>demo.Application</start-class>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
     </properties>
     <build>
         <plugins>
@@ -60,14 +59,6 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-        <repository>
-            <id>spring-plugins-release</id>
-            <name>Spring Plugins Repository</name>
-            <url>https://repo.spring.io/plugins-release/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
@@ -87,6 +78,4 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
-
 </project>
