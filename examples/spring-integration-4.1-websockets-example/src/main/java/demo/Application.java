@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.*;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.dsl.IntegrationFlow;
-import org.springframework.integration.dsl.support.Function;
 import org.springframework.integration.websocket.ServerWebSocketContainer;
 import org.springframework.integration.websocket.outbound.WebSocketOutboundMessageHandler;
 import org.springframework.messaging.*;
@@ -14,6 +13,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.Executors;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 @RestController
 public class Application {
 
-    public static void main(String args[]) throws Throwable {
+    public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 
@@ -48,7 +48,7 @@ public class Application {
     @Bean
     IntegrationFlow webSocketFlow() {
         return f -> {
-            Function<Message , Object> splitter = m -> serverWebSocketContainer()
+            Function<Message, Object> splitter = m -> serverWebSocketContainer()
                     .getSessions()
                     .keySet()
                     .stream()
